@@ -1,22 +1,27 @@
 // main.ts
 
-// Define the Teacher interface
+// Teacher interface
 interface Teacher {
-  readonly firstName: string; // can only be set during initialization
-  readonly lastName: string;  // can only be set during initialization
-  fullTimeEmployee: boolean;  // always defined
-  yearsOfExperience?: number; // optional
-  location: string;           // always defined
-  [key: string]: any;         // allow any other attributes
+  readonly firstName: string;
+  readonly lastName: string;
+  fullTimeEmployee: boolean;
+  yearsOfExperience?: number;
+  location: string;
+  [key: string]: any;
 }
 
-// Example usage
-const teacher3: Teacher = {
+// Directors interface extending Teacher
+interface Directors extends Teacher {
+  numberOfReports: number;
+}
+
+// Example
+const director1: Directors = {
   firstName: 'John',
   lastName: 'Doe',
-  fullTimeEmployee: false,
   location: 'London',
-  contract: false, // extra property not defined in interface but allowed
+  fullTimeEmployee: true,
+  numberOfReports: 17,
 };
 
-console.log(teacher3);
+console.log(director1);
